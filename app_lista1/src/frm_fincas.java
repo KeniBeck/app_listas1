@@ -246,8 +246,29 @@ txt_nombre.setText("");
 txt_propietario.setText("");
 txt_codigo.requestFocus();
 }
+private void fnt_consultar(String codigo ){
+int_pos=0;
+bln_sw=true;
+    for (int i = 0; i < obj_fincas.size(); i++) {
+    if(codigo.equals(obj_fincas.get(i).getStr_codigo())){
+    int_pos=i;
+    bln_sw=true;
+    break;
+    }
+        
+    }
+    if(bln_sw==false){
+    JOptionPane.showMessageDialog(null, "No se encontraron"+"registros","consultar",JOptionPane.ERROR_MESSAGE);
+    }else{
+    txt_nombre.setText(obj_fincas.get(int_pos).getStr_nombre());
+    txt_contacto.setText(obj_fincas.get(int_pos).getStr_contato());
+    txt_direccion.setText(obj_fincas.get(int_pos).getStr_direccion());
+    txt_propietario.setText(obj_fincas.get(int_pos).getStr_propietario());
+    }
+
+}
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-        // TODO add your handling code here:
+        fnt_consultar(txt_codigo.getText());
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed

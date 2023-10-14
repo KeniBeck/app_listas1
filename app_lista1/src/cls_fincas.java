@@ -8,7 +8,7 @@ public class cls_fincas {
     
     public cls_fincas(String n,String c,String d,String co,String p){ 
     this.str_nombre=n;
-    this.str_codigo=co;
+    this.str_codigo=c;
     this.str_direccion=d;
     this.str_contato=co;
     this.str_propietario=p;
