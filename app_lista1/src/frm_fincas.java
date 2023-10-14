@@ -1,5 +1,6 @@
 
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,7 +16,9 @@ public class frm_fincas extends javax.swing.JFrame {
     /**
      * Creates new form frm_fincas
      */
-   
+    LinkedList<cls_fincas> obj_fincas = new LinkedList<cls_fincas>();
+    int int_pos;
+    boolean bln_sw;
     public frm_fincas() {
         initComponents();
     }
@@ -250,9 +253,16 @@ txt_codigo.requestFocus();
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         fnt_limpiar();
     }//GEN-LAST:event_btn_cancelarActionPerformed
-
+    private void fnt_guardar(String n,String c,String d,String co,String p){
+    if(n.equals("")||c.equals("")||d.equals("")||co.equals("")||p.equals("")){
+        JOptionPane.showMessageDialog(null, "Debe ingresar"+" Todos los datos","Registrar",JOptionPane.ERROR_MESSAGE);
+    }else{
+    obj_fincas.add(new cls_fincas(n,c,d,co,p));
+    JOptionPane.showMessageDialog(null, "Finca Registrada "+"Con Exito","Registra",JOptionPane.INFORMATION_MESSAGE);
+    }
+    }
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        // TODO add your handling code here:
+        fnt_guardar(txt_nombre.getText(), txt_codigo.getText(), txt_direccion.getText(), txt_contacto.getText(), txt_propietario.getText());
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**
